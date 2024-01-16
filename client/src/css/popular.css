@@ -1,0 +1,57 @@
+.popular{
+    /* height: 90vh; */
+    max-height: fit-content;
+    background-color: white;
+    overflow: hidden;
+}
+
+.popular-top{
+   color: black;
+   font-size: 3rem;
+   text-transform: uppercase;
+}
+
+.popular-bottom{
+    overflow: hidden
+}
+
+.carousel-item{
+    color: black !important;
+}
+
+/* -----------media queries----------  */
+
+
+@media screen and (min-width:700px) and (max-width:1070px) {
+
+    .popular-bottom{
+        margin: 0% !important;
+    }
+
+}
+
+@media screen and (min-width:500px) and (max-width:700px) {
+
+    .popular-bottom{
+        margin: auto 48px !important;
+    }
+
+}
+
+@media screen and (max-width:500px) {
+
+    .popular-top{
+        font-size: 1.5rem;
+        margin: 0% !important;
+        margin-top: 40px !important;
+    }
+
+    .popular-bottom{
+        margin: 0% 16px !important;
+    }
+
+    .box{
+        margin-top: 40px !important;
+    }
+
+}

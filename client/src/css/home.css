@@ -1,0 +1,18 @@
+body {
+  background-color: #F2F1EB;
+  transition: 1s ease;
+  font-family: 'Nunito Sans', sans-serif;
+  z-index: 10;
+}
+::-webkit-scrollbar {
+  width: 1vh;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(136, 136, 136);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #ffffff;
+}

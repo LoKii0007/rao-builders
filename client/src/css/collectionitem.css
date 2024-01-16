@@ -1,0 +1,131 @@
+.box{
+    background-color: #F0F0F0;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 2px solid black;
+    transition: .5s ease-out;
+    max-width: 28%;
+}
+
+.box:hover{
+    transition: .5s ease;
+    transform: translateY(-8px);
+}
+
+.box-img{
+    width: 100% !important;
+    background-color: whitesmoke;
+}
+
+.box-head{
+    width: 100%;
+    height: fit-content;
+}
+
+.title{
+    word-break: break-all;
+    text-transform: uppercase;
+}
+
+.view{
+    background-color: #86A7FC;
+    border-radius: 5px;
+    transition: .5s ease;
+    border: none;
+}
+
+.view:hover{
+    background-color: #3468C0;
+    transition: .5s ease;
+}
+
+.inquire{
+    background-color: #dc4b3d;
+    border-radius: 5px;
+    transition: .5s ease;
+    border: none;
+
+}
+
+.inquire:hover{
+    background-color: rgb(195, 44, 30);
+    transition: .5s ease;
+}
+
+/* -----------media queries----------  */
+
+@media screen and (min-width:716px) and (max-width:1280px) {
+
+    .box{
+        margin-bottom: 0% !important;
+        max-width: 100% !important;
+    }
+    .box-head{
+        width: 100%;
+    }
+    .box-img{
+        width: 100%;
+    }
+
+    .contact-1{
+        margin-right: 24px !important;
+    }
+
+    .box-footer{
+        flex-direction: column !important;
+    }
+
+    .contact-1{
+        margin-bottom: 24px !important;
+        margin-right: 0% !important;
+    }
+
+}
+
+@media screen and (min-width:501px) and (max-width:715px) {
+
+    .box{
+        margin-bottom: 0% !important;
+        max-width: 100% !important;
+    }
+
+    .box-head{
+        width: 100%;
+    }
+
+    .box-img{
+        width: 100%;
+    }
+
+    .box-footer{
+        padding-bottom: 0% !important;
+    }
+
+    .contact-1{
+        margin-bottom: 24px !important;
+    }
+
+}
+
+@media screen and (max-width:500px) {
+    .box{
+        margin-bottom: 0% !important;
+        max-width: 100% !important;
+    }
+
+    .box-head{
+        width: 100%;
+    }
+
+    .box-img{
+        width: 100%;
+    }
+
+    .box-footer{
+        flex-direction: column !important;
+    }
+
+    .contact-1{
+        margin-bottom: 24px !important;
+    }
+}
