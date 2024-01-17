@@ -78,7 +78,7 @@ const Intro = () => {
                         </div>
                         <div className="foot-desc">
                             <h5>Unbeatable prices</h5>
-                            <h6>At Raobuilders, we guarantee <br /> unbeatable prices on the highest <br /> quality building material.</h6>
+                            <h6>At Raobuilders, we guarantee unbeatable prices on the highest quality building material.</h6>
                         </div>
                     </div>
                     <div className="foot2 d-flex middle">
@@ -87,7 +87,7 @@ const Intro = () => {
                         </div>
                         <div className="foot-desc ">
                             <h5>On time delivery </h5>
-                            <h6>At Raobuilders,we assure <br /> that we make on- time deliveries <br /> to all the orders we take from our customers..</h6>
+                            <h6>At Raobuilders,we assure that we make on- time deliveries to all the orders we take from our customers..</h6>
                         </div>
                     </div>
                     <div className="foot3 d-flex">
@@ -96,7 +96,7 @@ const Intro = () => {
                         </div>
                         <div className="foot-desc">
                             <h5>Authorized dealer</h5>
-                            <h6>Discover top-notch building <br /> materials at BuildingSuppliesPro—your <br /> trusted authorized dealer. </h6>
+                            <h6>Discover top-notch building materials at BuildingSuppliesPro—your trusted authorized dealer. </h6>
                         </div>
                     </div>
                 </div>
