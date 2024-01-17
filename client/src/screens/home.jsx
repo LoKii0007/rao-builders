@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <>
       <Intro/>
-      <Popular/>
+      {/* <Popular/> */}
       <Review/>
       <Fixed/>
     </>

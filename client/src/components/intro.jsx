@@ -42,47 +42,63 @@ const Intro = () => {
 
     return (
         <>
-            <div className="intro justify-content-evenly position-relative mx-5 d-flex flex-column">
+            <div className="intro d-flex flex-column">
 
-                <div className="bg-carousel position-absolute">
-                    <div id="carouselExampleSlidesOnly" className="carousel slide" data-bs-ride="carousel">
+                <div className="bg-carousel d-flex align-items-center justify-content-center">
+                    <div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel">
                         <div className="carousel-inner">
                             <div className="carousel-item active">
-                                <img src="/porsche-model.png" className="bg-img d-block w-100" alt="..." />
+                                <img src="/bg-aggregate.webp" className="bg-img d-block w-100" alt="..." />
                             </div>
                             <div className="carousel-item">
-                                <img src="/porsche-model.png" className="bg-img d-block w-100" alt="..." />
+                                <img src="/bg-bricks.webp" className="bg-img d-block w-100" alt="..." />
                             </div>
                             <div className="carousel-item">
-                                <img src="/porsche-model.png" className="bg-img d-block w-100" alt="..." />
+                                <img src="/bg-sand.webp" className="bg-img d-block w-100" alt="..." />
+                            </div>
+                            <div className="carousel-item">
+                                <img src="/bg-stone.webp" className="bg-img d-block w-100" alt="..." />
                             </div>
                         </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
                 </div>
 
-                <div className="portfolio d-flex mx-5 mt-5 position-relative justify-content-start align-items-center">
-                    <div className="portfolio-left d-flex flex-column justify-content-center align-items-center ">
-                        <div className="portfolio-desc  d-flex flex-column justify-content-center">
-                            <div className="slogan position-absolute my-5 mx-3">
-                                <span className='main-slogan'>Driven Quality <br /> Trusted Miles </span> <br /> Your Journey Begins Here.
-                            </div>
+                <div className="intro-foot px-5 py-4 d-flex align-items-center justify-content-evenly">
+                    <div className="foot1 d-flex">
+                        <div className="foot-icon mx-5 d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-hand-holding-dollar"></i>
                         </div>
-                        <div className="browse-div d-flex my-5 justify-content-center align-items-end">
-                            <div className="collection-btn d-flex flex-column justify-content-center">
-                                <div className="b-input d-flex flex-column justify-content-center">
-                                    <input onKeyDown={handleInput} onChange={onchange} value={text} className='p-2' id='myInput' type='text' placeholder='Search your buy' />
-                                </div>
-                                <div className='browse text-center my-3'>
-                                    <button onClick={handleClick} className='btn custom-btn '>
-                                        <h2 className='drive m-1 px-4'>Drive collection</h2>
-                                    </button>
-                                </div>
-                            </div>
+                        <div className="foot-desc">
+                            <h5>UNBEATABLE PRICES</h5>
+                            <h6>At Raobuilders, we guarantee <br /> unbeatable prices on the highest <br /> quality building material.</h6>
                         </div>
                     </div>
-                    {/* <div className="portfolio-right pe-2 d-flex justify-content-center align-items-center" id='portfolio-img'>
-                        <img className="portfolio-img" src="/mustang-2.webp" alt="" />
-                    </div> */}
+                    <div className="foot2 d-flex middle">
+                        <div className="foot-icon mx-5 d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-stopwatch "></i>
+                        </div>
+                        <div className="foot-desc ">
+                            <h5>ON TIME DELIVERY </h5>
+                            <h6>At Raobuilders,we assure <br /> that we make on- time deliveries <br /> to all the orders we take from our customers..</h6>
+                        </div>
+                    </div>
+                    <div className="foot3 d-flex">
+                        <div className="foot-icon mx-5 d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-medal "></i>
+                        </div>
+                        <div className="foot-desc">
+                            <h5>AUTHORIZED DEALER</h5>
+                            <h6>Discover top-notch building <br /> materials at BuildingSuppliesPro—your <br /> trusted authorized dealer. </h6>
+                        </div>
+                    </div>
                 </div>
 
             </div>
