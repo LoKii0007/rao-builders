@@ -2,6 +2,7 @@ import axios from "axios"
 import toast from "react-hot-toast"
 
 const URL = "http://localhost:8000"
+// const URL = "http://localhost:8000"
 
 
 //adding car details api
@@ -9,7 +10,7 @@ export const addCarInfo = async (data) => {
     try {
         const res = await axios.post(`${URL}/api/add/car-info`, data)
         if (res.status == 200) {
-            toast.success("added car-info succesfully")
+            toast.success("added product succesfully")
             return res.data
         }
         else {
@@ -24,7 +25,7 @@ export const addMainImage = async (data) => {
     try {
         const res = await axios.post(`${URL}/api/add/car-main-image`, data, { headers: { "Content-Type": "multipart/form-data" } })
         if (res.status == 200) {
-            toast.success("added main image succesfully")
+            toast.success("added product image succesfully")
             return res.data
         }
         else {
@@ -39,7 +40,7 @@ export const addCarSummary = async (data) => {
     try {
         const res = await axios.post(`${URL}/api/add/car-summary`, data)
         if (res.status == 200) {
-            toast.success("added car summary succesfully")
+            toast.success("added item succesfully")
             return res.data
         }
         else {
@@ -54,7 +55,7 @@ export const addCarImages = async (data) => {
     try {
         const res = await axios.post(`${URL}/api/add/car-images`, data, { headers: { "Content-Type": "multipart/form-data" } })
         if (res.status == 200) {
-            toast.success("added image succesfully")
+            toast.success("added item image succesfully")
             return res.data
         }
         else {
