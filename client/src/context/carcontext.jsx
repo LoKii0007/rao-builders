@@ -1,15 +1,15 @@
 import React, { createContext, useEffect, useState } from 'react'
 import { getAllCar } from '../services/api'
 
-export const carContext = createContext()
+export const productContext = createContext()
 
-const CarState = (props) => {
+const ProductState = (props) => {
 
-  const [cars, setCars] = useState([])
+  const [product, setProduct] = useState([])
 
   const getAllCars = async () => {
     const res = await getAllCar();
-    setCars(res)
+    setProduct(res)
   }
 
   useEffect(() => {
@@ -18,10 +18,10 @@ const CarState = (props) => {
 
 
   return (
-    <carContext.Provider value={{ cars }}>
+    <productContext.Provider value={{ product }}>
       {props.children}
-    </carContext.Provider>
+    </productContext.Provider>
   )
 }
 
-export default CarState
+export default ProductState

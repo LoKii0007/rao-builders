@@ -1,23 +1,23 @@
 import React, { useContext, useEffect, useState } from 'react'
 import "../css/popular.css"
-import { carContext } from '../context/carcontext'
+import { productContext } from '../context/carcontext'
 import "../css/collectionitem.css"
 import CollectionItem from './collectionitem'
 
 export default function Popular() {
-    const context = useContext(carContext)
-    const { cars } = context
+    const context = useContext(productContext)
+    const { product } = context
     const [popular, setPopular] = useState([])
     const [items, setItems] = useState(true)
 
     // useEffect(() => {
-    //     setPopular(cars)
-    //     const filter = cars.filter(car => car.price > 7000000)
+    //     setPopular(product)
+    //     const filter = product.filter(car => car.price > 7000000)
     //     // console.log(filter)
     //     if (filter) {
     //         setPopular(filter)
     //     }
-    // }, [cars])
+    // }, [product])
 
     useEffect(() => {
         const handleResize = () => {
@@ -42,12 +42,7 @@ export default function Popular() {
                 </div>
                 <div className={`popular-bottom align-items-center justify-content-center d-flex flex-wrap`}>
                     {/* {popular.map((car, index) => ( */}
-                    <CollectionItem />
-                    <CollectionItem />
-                    <CollectionItem />
-                    <CollectionItem />
-                    <CollectionItem />
-                    <CollectionItem />
+                    <CollectionItem product={product} />
                     {/*  ))} */}
 
                 </div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import "../css/newcar.css"
-import { addCarInfo, addCarImages, addCarSummary, addCarSpecification, addMainImage } from '../services/api';
+import { addCarInfo, addCarImages, addCarSummary, addMainImage } from '../services/api';
 import { useParams } from 'react-router-dom';
 
 const NewCar = () => {
@@ -14,12 +14,14 @@ const NewCar = () => {
   const [flag4, setFlag4] = useState(false)
   const [flag5, setFlag5] = useState(false)
   const [carId, setCarId] = useState("")
+  const [product, setProduct] = useState("")
 
-  const carSummaryCategories = ["Ownership", "Manufacturing_year", "Vehicle_type", "Insurance_validity", "Engine", "Transmission", "Peak_torque", "Peak_power", "Seating_capacity", "Fuel", "Kms_driven"]
-
-
-  const carSummaryCategoriesLower = carSummaryCategories.map(category => category.toLowerCase())
-
+  const aggregate = ["quality", "size", "brand"]
+  const bricks = ["brand", "thickness", "minimum_order", "material"]
+  const cement = ["quantity", "type", "brand"]
+  const dust = ["quality", "source", "price"]
+  const steel = ["size", "company", "price"]
+  const tiles = ["shape", "color", "dimension", "price"]
 
   const onChange = (e) => {
     setText({ ...text, [e.target.name]: e.target.value })
@@ -35,13 +37,14 @@ const NewCar = () => {
   }
 
 
-  //adding carInfo
+  //adding product
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (text) {
       const res = await addCarInfo(text)
       console.log("added new car", res)
       setCarId(res.data._id)
+      setProduct(res.data.product)
     }
     resetForm()
     setFlag1(false)
@@ -76,13 +79,13 @@ const NewCar = () => {
   }
 
 
-  // adding carsummary
-  const handleSubmitSummary = async (e) => {
+  // adding ptoduct item
+  const handleSubmitItem = async (e) => {
     e.preventDefault()
     const updatedText = { ...text, car_id: carId }
     if (updatedText) {
       const res = await addCarSummary(updatedText)
-      console.log("added car summary")
+      console.log("added product item")
     }
     resetForm()
     setFlag3(false)
@@ -90,26 +93,10 @@ const NewCar = () => {
   }
 
 
-  //adding all images
+  //adding item images
   const handleImage = (e) => {
     e.preventDefault()
     setImages(e.target.files[0])
-  }
-
-  const handleAdd = async (e) => {
-    e.preventDefault()
-    const formdata = new FormData()
-    formdata.append("images", images)
-    formdata.append("car_id", carId)
-    if (images && carId !== "") {
-      await addCarImages(formdata)
-      console.log("added image")
-    }
-    setCarId("")
-    resetForm()
-    document.getElementById("image").value = "";
-    setFlag4(false)
-    setFlag1(true)
   }
 
   const handleSubmitImage = async (e) => {
@@ -126,6 +113,18 @@ const NewCar = () => {
     document.getElementById("image").value = "";
   }
 
+  const handleAddMore = () =>{
+    flag3(true)
+    flag5(false)
+  }
+
+  const handleDone = () =>{
+    setCarId("")
+    setProduct("")
+    flag5(false)
+    flag1(true)
+  }
+
 
   return (
     <>
@@ -139,7 +138,7 @@ const NewCar = () => {
 
           <div className="form-group my-2">
             <label for="validationCustom04" class="form-label">State</label>
-            <select class="form-select" id="validationCustom04" onChange={onChange} value={text.state|| ""} required>
+            <select class="form-select" id="validationCustom04" name='product' onChange={onChange} value={text.product || ""} required>
               <option selected disabled value="">Choose a product</option>
               <option>agreegate</option>
               <option>Stone dust</option>
@@ -175,45 +174,68 @@ const NewCar = () => {
 
 
         {flag3 && <form >
-          {carSummaryCategoriesLower.map((option) => (
+          {product === "aggregate" ? aggregate.map((option) => (
             <div className="form-group my-2" key={option}>
               <label htmlFor={text.option}>{option} :</label>
               <input className="form-control new-control" onChange={onChange} value={text.option} type="text" id={option} name={option} />
             </div>
-          ))}
-
-          <div className='text-center' >
-            <button className='px-5 py-1' onClick={handleSubmitSummary} type="submit" value="Submit" >Next</button>
-          </div>
-        </form>}
-
-
-        {flag4 && <form >
-          {specificationCategoriesLower.map((option) => (
-            <div className="form-group my-2">
-              <label htmlFor={text.option}>{option}:</label>
-              <input className="form-control new-control" onChange={onChange} value={text.option} key={option} type="text" id={option} name={option} required />
+          )) : ""}
+          {product === "Bricks & Blocks" ? bricks.map((option) => (
+            <div className="form-group my-2" key={option}>
+              <label htmlFor={text.option}>{option} :</label>
+              <input className="form-control new-control" onChange={onChange} value={text.option} type="text" id={option} name={option} />
             </div>
-          ))}
+          )) : ""}
+
+          {product === "Cement" ? cement.map((option) => (
+            <div className="form-group my-2" key={option}>
+              <label htmlFor={text.option}>{option} :</label>
+              <input className="form-control new-control" onChange={onChange} value={text.option} type="text" id={option} name={option} />
+            </div>
+          )) : ""}
+
+          {product === "Stone dust" ? dust.map((option) => (
+            <div className="form-group my-2" key={option}>
+              <label htmlFor={text.option}>{option} :</label>
+              <input className="form-control new-control" onChange={onChange} value={text.option} type="text" id={option} name={option} />
+            </div>
+          )) : ""}
+
+          {product === "Steel/TMT Bars" ? steel.map((option) => (
+            <div className="form-group my-2" key={option}>
+              <label htmlFor={text.option}>{option} :</label>
+              <input className="form-control new-control" onChange={onChange} value={text.option} type="text" id={option} name={option} />
+            </div>
+          )) : ""}
+
+          {product === "Interlocking Tiles" ? tiles.map((option) => (
+            <div className="form-group my-2" key={option}>
+              <label htmlFor={text.option}>{option} :</label>
+              <input className="form-control new-control" onChange={onChange} value={text.option} type="text" id={option} name={option} />
+            </div>
+          )) : ""}
 
           <div className='text-center' >
-            <button className='px-5 py-1' onClick={handleSubmitSpecification} type="submit" value="Submit" >Next</button>
+            <button className='px-5 py-1' onClick={handleSubmitItem} type="submit" value="Submit" >Next</button>
           </div>
         </form>}
 
 
-        {flag5 && <form encType='multipart/form-data'>
+        {flag4 && <form encType='multipart/form-data'>
           <div className="form-group my-2">
             <label htmlFor="image">Select Image : </label>
             <input onChange={handleImage} type="file" id="image" name="image" required />
-            <button className='px-5 py-1' onClick={handleSubmitImage} type="submit" value="Submit" >upload and Add more images</button>
+            <button className='px-5 py-1' onClick={handleSubmitImage} type="submit" value="Submit" >upload image</button>
 
-          </div>
-
-          <div className='text-center' >
-            <button className='px-5 py-1 my-3' onClick={handleAdd} type="submit" value="Submit" >upload and Done</button>
           </div>
         </form>}
+
+        {flag5 &&
+          <div className='text-center' >
+            <button className='px-5 py-1 my-3' onClick={handleAddMore} type="submit" value="Submit" >Add more product item</button>
+            <button className='px-5 py-1 my-3' onClick={handleDone} type="submit" value="Submit" >Done</button>
+          </div>
+        }
 
 
       </div>

@@ -1,58 +1,67 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from "react-router-dom"
-import { getAllCar, getCarSummary, getCar } from "../services/api"
+import { getAllProduct, getItem, getProduct, getItemImage } from "../services/api"
 import CollectionItem from '../components/collectionitem'
 import "../css/cardetails.css"
-import Fixed from './fixed'
-import { Product } from './product'
+import Fixed from '../components/fixed'
+import { Product } from '../components/product'
 
 const CarDetails = () => {
     const { id } = useParams()
     const [cars, setCars] = useState([])
-    const [car, setCar] = useState({})
+    const [product, setProduct] = useState({})
     const [relatedCars, setRelatedCars] = useState([])
     const [showDropdown, setShowDropdown] = useState(false);
-    const [selectedCategory, setSelectedCategory] = useState('');
-    const [carSummary, setCarSummary] = useState({})
-    const [items, setItems] = useState(6)
+    const [items, setItems] = useState({})
+    const [image, setImage] = useState("")
 
 
-    const getAllCars = async () => {
-        const res = await getAllCar()
+    const getAllProducts = async () => {
+        const res = await getAllProduct()
         if (res != undefined) {
             const filteredcar = res.filter(car => car._id.includes(id.toLowerCase()))
             setCars(filteredcar)
+            setProduct(filteredcar)
 
             const filteredRelatedCar = res.filter(car => car._id !== id)
             setRelatedCars(filteredRelatedCar)
         }
     }
 
-    const getCars = async () => {
-        const res = await getCar({ id })
+    // const getProducts = async () => {
+    //     const res = await getProduct({ id })
+    //     if (res) {
+    //         setCar(res.data)
+    //     }
+    // }
+
+    const getItems = async () => {
+        const res = await getItem({ id })
         if (res) {
-            setCar(res.data)
+            setItems(res.data[0])
         }
     }
 
-    const getcarsummary = async () => {
-        const res = await getCarSummary({ id })
+    const getItemImages = async () => {
+        const res = await getItemImage({ id })
         if (res) {
-            setCarSummary(res.data[0])
+            console.log(res.data[0])
+            setImage(res.data[0])
         }
     }
 
 
     useEffect(() => {
-        getAllCars()
+        getAllProducts()
         if (id) {
-            getCars()
-            getcarsummary()
+            getProducts()
+            getItems()
+            getItemImages()
         }
     }, [id])
 
     useEffect(() => {
-    }, [car, carSummary])
+    }, [car, carSummary, image])
 
 
     const handleSpecification = (category) => {
@@ -84,12 +93,12 @@ const CarDetails = () => {
                 </div>
 
                 <div className="all my-5 d-flex flex-column justify-content-center align-items-center">
-                    <Product />
-                    <div className="line"></div>
-                    <Product />
-                    <div className="line"></div>
-                    <Product />
-                    <div className="line"></div>
+                    {items.map((item, index) => (
+                        <div key={index}>
+                            <Product image={image} item={item} product={product} />
+                            <div className="line"></div>
+                        </div>
+                    ))}
                 </div>
 
                 <div className="related-cars container">

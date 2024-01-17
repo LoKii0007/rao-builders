@@ -1,44 +1,33 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
-const carSchema = new mongoose.Schema({
-  car_id:{
-    type : String
-  },
-  ownership: {
+const productSchema = new mongoose.Schema({
+  name: {
     type: String,
+    required: true,
   },
-  manufacturing_year: {
+  type: {
     type: String,
+    required: true,
+    enum: ['aggregate', 'bricks', 'cement', 'dust', 'steel', 'tiles'],
   },
-  vehicle_type: {
-    type: String,
+  properties: {
+    quality: String,
+    size: String,
+    brand: String,
+    thickness: String,
+    minimum_order: String,
+    material: String,
+    quantity: String,
+    type_cement: String,
+    source: String,
+    price: String,
+    company: String,
+    shape: String,
+    color: String,
+    dimension: String,
   },
-  insurance_validity: {
-    type: String,
-  },
-  engine: {
-    type: String,
-  },
-  transmission: {
-    type: String,
-  },
-  peak_torque: {
-    type: String,
-  },
-  peak_power: {
-    type: String,
-  },
-  seating_capacity: {
-    type: String,
-  },
-  fuel: {
-    type: String,
-  },
-  kms_driven: {
-    type: String,
-  },
-})
+});
 
-const carSummary = mongoose.model("car-summary", carSchema);
+const product = mongoose.model('Product', productSchema);
 
-module.exports = carSummary;
+module.exports = product;

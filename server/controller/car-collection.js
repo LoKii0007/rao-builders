@@ -28,7 +28,7 @@ const newCarSummary = async(request, response) => {
      try {
         const newCar = new carSummary(request.body)
         await newCar.save()
-        return response.status(200).json({message : "added car summary : ", data : newCar})
+        return response.status(200).json({message : "added car summary : ", data : productItem})
      } catch (error) {
         return response.status(500).json({message : "error adding car summary : ", error :error.message})
      }

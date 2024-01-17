@@ -50,21 +50,6 @@ export const addCarSummary = async (data) => {
     }
 }
 
-export const addCarSpecification = async (data) => {
-    try {
-        const res = await axios.post(`${URL}/api/add/car-specification`, data)
-        if (res.status == 200) {
-            toast.success("added car specification succesfully")
-            return res.data
-        }
-        else {
-            console.log("invalid get-car-specification api response", res.data)
-        }
-    } catch (error) {
-        console.log("error calling addCarspecification api", error.message)
-    }
-}
-
 export const addCarImages = async (data) => {
     try {
         const res = await axios.post(`${URL}/api/add/car-images`, data, { headers: { "Content-Type": "multipart/form-data" } })
@@ -82,7 +67,7 @@ export const addCarImages = async (data) => {
 
 
 // fetching car details api
-export const getAllCar = async () => {
+export const getAllProduct = async () => {
     try {
         const res = await axios.get(`${URL}/api/get/cars`)
         if (res.status == 200) {
@@ -92,11 +77,11 @@ export const getAllCar = async () => {
             console.log("invalid getcars api response", res.data)
         }
     } catch (error) {
-        console.log("error calling getAllCar api", error.message)
+        console.log("error calling getcars api", error.message)
     }
 }
 
-export const getCar = async (data) => {
+export const getProduct = async (data) => {
     try {
         const res = await axios.post(`${URL}/api/get/car-info`, data)
         if (res.status == 200) {
@@ -111,7 +96,7 @@ export const getCar = async (data) => {
 }
 
 
-export const getCarSummary = async (data) => {
+export const getItem = async (data) => {
     try {
         const res = await axios.post(`${URL}/api/get/car-summary`, data)
         if (res.status == 200) {
@@ -126,22 +111,7 @@ export const getCarSummary = async (data) => {
 }
 
 
-export const getCarSpecification = async (data) => {
-    try {
-        const res = await axios.post(`${URL}/api/get/car-specification`, data)
-        if (res.status == 200) {
-            return res.data
-        }
-        else {
-            console.log("invalid get-car-Specification api response", res.data)
-        }
-    } catch (error) {
-        console.log("error calling getCarSpecification api", error.message)
-    }
-}
-
-
-export const getCarImages = async (data) => {
+export const getItemImage = async (data) => {
     try {
         const res = await axios.post(`${URL}/api/get/car-images`, data)
         if (res.status == 200) {
