@@ -77,7 +77,7 @@ const Intro = () => {
                             <i class="fa-solid fa-hand-holding-dollar"></i>
                         </div>
                         <div className="foot-desc">
-                            <h5>UNBEATABLE PRICES</h5>
+                            <h5>Unbeatable prices</h5>
                             <h6>At Raobuilders, we guarantee <br /> unbeatable prices on the highest <br /> quality building material.</h6>
                         </div>
                     </div>
@@ -86,7 +86,7 @@ const Intro = () => {
                             <i class="fa-solid fa-stopwatch "></i>
                         </div>
                         <div className="foot-desc ">
-                            <h5>ON TIME DELIVERY </h5>
+                            <h5>On time delivery </h5>
                             <h6>At Raobuilders,we assure <br /> that we make on- time deliveries <br /> to all the orders we take from our customers..</h6>
                         </div>
                     </div>
@@ -95,7 +95,7 @@ const Intro = () => {
                             <i class="fa-solid fa-medal "></i>
                         </div>
                         <div className="foot-desc">
-                            <h5>AUTHORIZED DEALER</h5>
+                            <h5>Authorized dealer</h5>
                             <h6>Discover top-notch building <br /> materials at BuildingSuppliesPro—your <br /> trusted authorized dealer. </h6>
                         </div>
                     </div>

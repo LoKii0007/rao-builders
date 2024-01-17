@@ -55,6 +55,10 @@
         padding-left: 0% !important;
     }
 
+    .foot-icon{
+        margin: 0% 32px !important;
+    }
+
     .foot-icon i{
         justify-content: start !important;
         margin-left: 0% !important;
@@ -76,6 +80,9 @@
         margin: 0% !important;
     }
 
+    .foot-icon{
+        margin: 0% 32px !important;
+    }
     .intro-foot{
         flex-direction: column !important;
         width: 100%;
