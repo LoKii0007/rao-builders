@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react'
-import { getAllCar } from '../services/api'
+import { getAllProduct } from '../services/api'
 
 export const productContext = createContext()
 
@@ -8,7 +8,7 @@ const ProductState = (props) => {
   const [product, setProduct] = useState([])
 
   const getAllCars = async () => {
-    const res = await getAllCar();
+    const res = await getAllProduct();
     setProduct(res)
   }
 

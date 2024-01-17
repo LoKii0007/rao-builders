@@ -2,13 +2,10 @@ import React, { useContext, useState } from 'react'
 import NewCar from '../components/newcar'
 import { Link, useParams } from 'react-router-dom'
 import "../css/admin.css"
-import { adminContext } from '../context/admincontext'
 
 
 const Admin = () => {
   const flag = useParams()
-  const context = useContext(adminContext)
-  // const {addstaff} = context
   const authToken = localStorage.getItem("token")
   const [addbtn, setaddbtn] = useState(false)
   const [getbtn, setGetbtn] = useState(false)

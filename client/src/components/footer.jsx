@@ -6,7 +6,7 @@ const Footer = () => {
   const [text, setText] = useState("")
   const companyOptions = ["Buy used BMW", "Buy used Mercedes", "Buy used Ford", "Buy used Citroen", "Buy used Ferrari", "Buy used Lamborghini", "Buy used MG", "Buy used Kia", "Buy used Mahindra", "Buy used Skoda", "Buy used Jeep", "Buy used Audi", "Buy used mini"]
   const bodyTypeOptions = ['Buy used SUV', 'Buy used Sedan', 'Buy used Convertible', 'Buy used Coupe', 'Buy used Sports', 'Buy used Hatchback', 'Buy used MUV-MPV']
-  const General = ["Sell Car", "Videos", "FAQs", "location"]
+  const General = ["About us", "Team", "FAQs", "location"]
   const address = ["Khasra number 30//7,", "VPO kapashera near rajokri roundabout,", "Rajokri, New Delhi, Delhi 110037"]
   const footerContent = [
     { title: 'General', content: General },
@@ -114,7 +114,7 @@ const Footer = () => {
 
           <div className="footer-foot my-3 d-flex justify-content-between align-items-center">
             {/* <div className="copyright">copyright © You drive me crazy | Privacy policy | Terms of use</div> */}
-            <div className="copyright">copyright © You drive me crazy</div>
+            <div className="copyright">copyright © Rao builders</div>
             <div className="design">
               website by Spiderworks
             </div>
