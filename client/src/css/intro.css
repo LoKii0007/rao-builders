@@ -24,7 +24,7 @@
 }
 
 .foot-icon{
-    transform: scale(2);
+    scale: 1.7;
 }
 
 /* -----------media query------------ */
@@ -81,8 +81,9 @@
     }
 
     .foot-icon{
-        margin: 0% 32px !important;
+        margin: 0% 30px !important;
     }
+
     .intro-foot{
         flex-direction: column !important;
         width: 100%;
@@ -92,6 +93,7 @@
     .foot-icon i{
         justify-content: start !important;
         margin-left: 0% !important;
+        scale: .9;
     }
 
     .middle{
