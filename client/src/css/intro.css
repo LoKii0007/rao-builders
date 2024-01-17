@@ -63,6 +63,9 @@
     .middle{
         margin: 16px 0% !important;
     }
+    .foot-desc h6{
+        display: none !important;
+    }
 }
 
 @media screen and (max-width:500px) {
@@ -86,6 +89,10 @@
 
     .middle{
         margin: 16px 0% !important;
+    }
+
+    .foot-desc h6{
+        display: none !important;
     }
 
 }
