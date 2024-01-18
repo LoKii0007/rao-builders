@@ -71,7 +71,7 @@ const Intro = () => {
                     </div>
                 </div>
 
-                <div className="intro-foot px-5 py-4 d-flex align-items-center justify-content-evenly">
+                <div className="intro-foot px-5 py-5 d-flex align-items-center justify-content-evenly">
                     <div className="foot1 d-flex">
                         <div className="foot-icon mx-5 d-flex align-items-center justify-content-center">
                             <i class="fa-solid fa-hand-holding-dollar"></i>

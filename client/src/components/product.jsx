@@ -1,7 +1,7 @@
 import React from 'react'
 import "../css/product.css"
 
-export const Product = ({ image }, { item }, { product }) => {
+export const Product = ({image}, { item }, { product }) => {
 
     return (
         <>
@@ -12,21 +12,21 @@ export const Product = ({ image }, { item }, { product }) => {
                 </div>
                 <div className="pright d-flex p-5 flex-column justify-content-center">
                     <div className="pright-head text-center">
-                        product name
+                        {item.prod_name}
                     </div>
-                    {product.name === "dsjbc" ?
+                    {product.product === "Cement" ?
                         <div className="pright-body py-4">
                             <div className='d-flex justify-content-between mb-2 mx-3'>
-                                <div>quality</div>
-                                <div>sjdcb</div>
+                                <div>quantity</div>
+                                <div>{item.quantity}</div>
                             </div>
                             <div className='d-flex justify-content-between mb-2 mx-3'>
-                                <div>Size</div>
-                                <div>jsdcb</div>
+                                <div>Type</div>
+                                <div>{item.type}</div>
                             </div>
                             <div className='d-flex justify-content-between mb-2 mx-3'>
                                 <div>Brand</div>
-                                <div>skdcb</div>
+                                <div>{item.brand}</div>
                             </div>
                         </div>: ""
                     }

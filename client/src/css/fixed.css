@@ -5,7 +5,16 @@
 }
 
 .fa-whatsapp{
-    transform:scale(2);
+    height: 100px;
+    width: 100px;
     background-color: #59CE72;
-    border-radius: 16px;
+    border-radius: 50px;
+}
+
+@media screen and (max-width:500px) {
+    .fa-whatsapp{
+        height: 60px;
+        width: 60px;
+        border-radius: 30px;
+    }
 }

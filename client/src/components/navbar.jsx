@@ -10,14 +10,14 @@ const Navbar = () => {
     const navbarItems = [
         { title: "Home", link: "" },
         { title: "All Products", link: "collection" },
+        { title: "About Us", link: "about" },
+        { title: "Team", link: "team" },
         { title: "Aggregate", link: "aggregate" },
         { title: "Stone dust", link: "stone" },
         { title: "Jamuna sand", link: "jamuna" },
         { title: "Bricks & Blocks", link: "brick" },
         { title: "RMC", link: "rmc" },
         { title: "Cement", link: "cement" },
-        { title: "About Us", link: "about" },
-        { title: "Team", link: "team" },
         { title: "Steel/TMT Bars", link: "steel" },
         { title: "Interlocking Tiles", link: "tiles" },
     ]
@@ -113,7 +113,7 @@ const Navbar = () => {
                     <div className="offcanvas-body">
                         {navbarItems.map((item, index) => (
                             <>
-                                {index === 0 || 1 ?
+                                {index === 0 || 1 || 2 || 3 ?
                                     <div onClick={() => handleNormal(item)} key={item} className="canvas-items mx-3">
                                         <Link className={`canva-item `} data-bs-dismiss="offcanvas" aria-label="Close" >{item.title}</Link>
                                     </div> :

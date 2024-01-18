@@ -33,8 +33,8 @@ export default function Popular() {
     return (
         <>
             <div className="popular mb-5 d-flex flex-column">
-                <div className="popular-top m-5 text-center">
-                    popular cars
+                <div className="popular-top mx-5 mt-5 text-center">
+                    Popular Products 
                 </div>
                 <div className={`popular-bottom align-items-center justify-content-center d-flex flex-wrap`}>
                     {popular.map((car, index) => (

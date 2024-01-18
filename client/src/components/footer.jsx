@@ -4,15 +4,15 @@ import "../css/footer.css"
 
 const Footer = () => {
   const [text, setText] = useState("")
-  const companyOptions = ["Buy used BMW", "Buy used Mercedes", "Buy used Ford", "Buy used Citroen", "Buy used Ferrari", "Buy used Lamborghini", "Buy used MG", "Buy used Kia", "Buy used Mahindra", "Buy used Skoda", "Buy used Jeep", "Buy used Audi", "Buy used mini"]
-  const bodyTypeOptions = ['Buy used SUV', 'Buy used Sedan', 'Buy used Convertible', 'Buy used Coupe', 'Buy used Sports', 'Buy used Hatchback', 'Buy used MUV-MPV']
+  const companyOptions = ["Buy Steel/TMT bars", "Buy Cement", "Buy Jamuna sand", "Buy Bricks & Blocks", "Buy Aggregate", "Buy Interlocking tiles", "Buy Stone dust", "Buy RMC"]
+  const bodyTypeOptions = ["Buy ultratech cement","Buy Shree cement" , "Buy Rathi steel", "buy Jindal Steel", "Buy Kamadhenu steel"]
   const General = ["About us", "Team", "FAQs", "location"]
   const address = ["Khasra number 30//7,", "VPO kapashera near rajokri roundabout,", "Rajokri, New Delhi, Delhi 110037"]
   const footerContent = [
     { title: 'General', content: General },
     { title: 'Studio', content: address },
-    { title: 'Brands', content: companyOptions },
-    { title: 'Style', content: bodyTypeOptions },]
+    { title: 'Products', content: companyOptions },
+    { title: 'Others', content: bodyTypeOptions },]
   const [collapse, setCollapse] = useState(false)
 
 

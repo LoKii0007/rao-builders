@@ -56,13 +56,13 @@
 }
 
 .signup{
-    background-color: greenyellow;
+    background-color: #ff8000;
     border-radius: 15px;
     border: none !important;
 }
 
 .footer-line{
-    background-color: greenyellow;
+    background-color: #ff8000;
     height: 3px;
 }
 
@@ -81,7 +81,7 @@
 }
 
 .option-selected:hover{
-    color: greenyellow;
+    color: #ff8000;
 }
 
 .design , .copyright{

@@ -42,18 +42,22 @@ const NewCar = () => {
     e.preventDefault()
     if (text) {
       const res = await addCarInfo(text)
-      console.log("added new product type", res)
-      setCarId(res.data._id)
-      setProduct(res.data.product)
+      if(res.status === 200){
+        setCarId(res.data.data._id)
+        setProduct(res.data.data.product)
+        setFlag1(false)
+        setFlag3(true)
+      }else{
+        setCarId(res.data._id)
+        setProduct(res.data.product)
+      setFlag1(false)
+      setFlag2(true)
+      }
     }
     resetForm()
-    setFlag1(false)
-    setFlag2(true)
   }
 
   useEffect(() => {
-    console.log(carId);
-    console.log(product)
   }, [carId, product]);
 
 

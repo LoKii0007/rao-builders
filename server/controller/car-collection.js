@@ -3,13 +3,18 @@ const product = require ("../models/car-summary.js")
 const Images = require("../models/car-image.js")
 
 const newCar = async(request, response) => {
-     try {
-        const newCar = new productType(request.body)
-        await newCar.save()
-        return response.status(200).json({message: "added new car successfully", data: newCar})
-     } catch (error) {
-        return response.status(500).json({message : "error adding car-info : ", error :error.message})
-     }
+   try {
+    let prodType = await productType.findOne({ product: request.body.product });
+    if (prodType) {
+      return response.status(200).json({ message: "a prodType exists already exisits ", data:prodType });
+    }else{
+      const newCar = new productType(request.body)
+      await newCar.save()
+      return response.status(201).json({message: "added new productType successfully", data: newCar})
+    }
+   } catch (error) {
+      return response.status(500).json({message : "error adding productType : ", error :error.message})
+   }
 }
 
 const addMainImage = async(request, response) => {
@@ -17,15 +22,14 @@ const addMainImage = async(request, response) => {
       const imageName =  request.file.filename
       const carId =  request.body.car_id
       await productType.findByIdAndUpdate(carId , {image : imageName}, {new : true})
-      return response.status(200).json("Added car images successfully")
+      return response.status(200).json("Added image successfully")
    }catch (error) {
-        return response.status(500).json({message : "error adding car images : ", error :error.message})
+        return response.status(500).json({message : "error adding image : ", error :error.message})
      }  
 }
 
 const newCarSummary = async(request, response) => {
      try {
-      console.log(request.body)
         const newCar = new product(request.body)
         await newCar.save()
         return response.status(200).json({message : "added car summary : ", data : newCar})
@@ -75,7 +79,7 @@ const getCar = async(req , res ) => {
 const getCarSummary = async(req , res ) => {
    try {
       const carId = req.body.id
-      const carsummary = await carSummary.find({car_id: carId})
+      const carsummary = await product.find({car_id: carId})
       if(!carsummary){
          return res.status(400).json("no car summary found or invalid car_id")
       }
