@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from "react-router-dom"
-import { getAllProduct, getItem, getProduct, getItemImage } from "../services/api"
+import { getAllProduct, getItem, getItemImage } from "../services/api"
 import CollectionItem from '../components/collectionitem'
 import "../css/cardetails.css"
 import Fixed from '../components/fixed'
 import { Product } from '../components/product'
 
-const CarDetails = () => {
+const ProdDetails = () => {
     const { id } = useParams()
-    const [cars, setCars] = useState([])
+    const [prodTypes, setProdTypes] = useState([])
     const [product, setProduct] = useState({})
     const [relatedCars, setRelatedCars] = useState([])
-    const [showDropdown, setShowDropdown] = useState(false);
     const [items, setItems] = useState({})
     const [image, setImage] = useState("")
 
@@ -19,21 +18,15 @@ const CarDetails = () => {
     const getAllProducts = async () => {
         const res = await getAllProduct()
         if (res != undefined) {
-            const filteredcar = res.filter(car => car._id.includes(id.toLowerCase()))
-            setCars(filteredcar)
-            setProduct(filteredcar)
+            console.log(res)
+            const filtered = res.filter(prod => prod.product.includes(id.toLowerCase()))
+            setProdTypes(filtered)
+            setProduct(filtered)
 
-            const filteredRelatedCar = res.filter(car => car._id !== id)
+            const filteredRelatedCar = res.filter(car => car.product !== product)
             setRelatedCars(filteredRelatedCar)
         }
     }
-
-    // const getProducts = async () => {
-    //     const res = await getProduct({ id })
-    //     if (res) {
-    //         setCar(res.data)
-    //     }
-    // }
 
     const getItems = async () => {
         const res = await getItem({ id })
@@ -54,20 +47,13 @@ const CarDetails = () => {
     useEffect(() => {
         getAllProducts()
         if (id) {
-            getProducts()
             getItems()
             getItemImages()
         }
     }, [id])
 
-    useEffect(() => {
-    }, [car, carSummary, image])
-
-
-    const handleSpecification = (category) => {
-        setSelectedCategory(category);
-        setShowDropdown(!showDropdown);
-    }
+    // useEffect(() => {
+    // }, [car, carSummary, image])
 
     useEffect(() => {
         const handleResize = () => {
@@ -89,11 +75,11 @@ const CarDetails = () => {
         <>
             <div className="details-page pb-4">
                 <div className="details py-4 text-center">
-                    title
+                    {prodTypes.product}
                 </div>
 
                 <div className="all my-5 d-flex flex-column justify-content-center align-items-center">
-                    {items.map((item, index) => (
+                    {items.isArray && items.map((item, index) => (
                         <div key={index}>
                             <Product image={image} item={item} product={product} />
                             <div className="line"></div>
@@ -119,4 +105,4 @@ const CarDetails = () => {
     )
 }
 
-export default CarDetails
+export default ProdDetails

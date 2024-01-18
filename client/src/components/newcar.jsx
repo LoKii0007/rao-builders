@@ -16,12 +16,12 @@ const NewCar = () => {
   const [carId, setCarId] = useState("")
   const [product, setProduct] = useState("")
 
-  const aggregate = ["quality", "size", "brand"]
-  const bricks = ["brand", "thickness", "minimum_order", "material"]
-  const cement = ["quantity", "type", "brand"]
-  const dust = ["quality", "source", "price"]
-  const steel = ["size", "company", "price"]
-  const tiles = ["shape", "color", "dimension", "price"]
+  const aggregate = ["prod_name","quality", "size", "brand"]
+  const bricks = ["prod_name","brand", "thickness", "minimum_order", "material"]
+  const cement = ["prod_name","quantity", "type", "brand"]
+  const dust = ["prod_name","quality", "source", "price"]
+  const steel = ["prod_name","size", "company", "price"]
+  const tiles = ["prod_name","shape", "color", "dimension", "price"]
 
   const onChange = (e) => {
     setText({ ...text, [e.target.name]: e.target.value })
@@ -42,7 +42,7 @@ const NewCar = () => {
     e.preventDefault()
     if (text) {
       const res = await addCarInfo(text)
-      console.log("added new car", res)
+      console.log("added new product type", res)
       setCarId(res.data._id)
       setProduct(res.data.product)
     }
@@ -53,7 +53,8 @@ const NewCar = () => {
 
   useEffect(() => {
     console.log(carId);
-  }, [carId]);
+    console.log(product)
+  }, [carId, product]);
 
 
   //adding mainImage
@@ -78,7 +79,6 @@ const NewCar = () => {
     setFlag3(true)
   }
 
-
   // adding ptoduct item
   const handleSubmitItem = async (e) => {
     e.preventDefault()
@@ -91,7 +91,6 @@ const NewCar = () => {
     setFlag3(false)
     setFlag4(true)
   }
-
 
   //adding item images
   const handleImage = (e) => {
@@ -111,18 +110,20 @@ const NewCar = () => {
     resetForm()
     setImages("")
     document.getElementById("image").value = "";
+    setFlag5(true)
+    setFlag4(false)
   }
 
   const handleAddMore = () =>{
-    flag3(true)
-    flag5(false)
+    setFlag3(true)
+    setFlag5(false)
   }
 
   const handleDone = () =>{
     setCarId("")
     setProduct("")
-    flag5(false)
-    flag1(true)
+    setFlag5(false)
+    setFlag1(true)
   }
 
 
@@ -132,15 +133,10 @@ const NewCar = () => {
         {flag1 && <form type="submit" className='newcar-form' >
 
           <div className="form-group my-2">
-            <label htmlFor="name">Product Name : </label>
-            <input className="form-control new-control" onChange={onChange} value={text.name} type="text" id="name" name="name" required />
-          </div>
-
-          <div className="form-group my-2">
-            <label for="validationCustom04" class="form-label">State</label>
-            <select class="form-select" id="validationCustom04" name='product' onChange={onChange} value={text.product || ""} required>
+            <label htmlFor="validationCustom04" className="form-label">Product type</label>
+            <select className="form-select" id="validationCustom04" name='product' onChange={onChange} value={text.product || ""} required>
               <option selected disabled value="">Choose a product</option>
-              <option>agreegate</option>
+              <option>aggregate</option>
               <option>Stone dust</option>
               <option>Jamuna sand</option>
               <option>Bricks & Blocks</option>

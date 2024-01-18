@@ -10,7 +10,7 @@ const Navbar = () => {
     const navbarItems = [
         { title: "Home", link: "" },
         { title: "All Products", link: "collection" },
-        { title: "Aggregate", link: "Aggregate" },
+        { title: "Aggregate", link: "aggregate" },
         { title: "Stone dust", link: "stone" },
         { title: "Jamuna sand", link: "jamuna" },
         { title: "Bricks & Blocks", link: "brick" },
@@ -35,7 +35,10 @@ const Navbar = () => {
     })
 
     const handleNav = (nav) => {
-        navigate("/" + nav.link)
+        navigate(`/products/${nav.link}`, { state: { product: nav.link } })
+    }
+    const handleNormal = (nav) => {
+        navigate(`/${nav.link}`)
     }
 
     useEffect(() => {
@@ -87,14 +90,18 @@ const Navbar = () => {
                 </div>
 
                 <div className="sticky-top custom-navbar-2 d-flex py-3 justify-content-center">
-                    <div className="itm-2 me-5">Aggregate</div>
-                    <div className="itm-2 me-5">Stone dust</div>
-                    <div className="itm-2 me-5">Jamuna sand</div>
-                    <div className="itm-2 me-5">Bricks & Blocks</div>
-                    <div className="itm-2 me-5">RMC</div>
-                    <div className="itm-2 me-5">Cement</div>
-                    <div className="itm-2 me-5">Steel/TMT Bars</div>
-                    <div className="itm-2">Interlocking Tiles</div>
+                    {navbarItems.slice(2, navbarItems.length).map((item, index) => (
+                        <>
+                            {index !== navbarItems.length-1 ?
+                                <div onClick={() => handleNav(item)} key={item} className="itm-2 me-5">
+                                    {item.title}
+                                </div> :
+                                <div onClick={() => handleNav(item)} key={item} className="itm-2">
+                                    {item.title}
+                                </div>
+                            }
+                        </>
+                    ))}
                 </div>
 
                 {/* menubar */}
@@ -106,9 +113,14 @@ const Navbar = () => {
                     <div className="offcanvas-body">
                         {navbarItems.map((item, index) => (
                             <>
-                                <div onClick={() => handleNav(item)} key={item} className="canvas-items mx-3">
-                                    <Link className={`canva-item `} data-bs-dismiss="offcanvas" aria-label="Close" >{item.title}</Link>
-                                </div>
+                                {index === 0 || 1 ?
+                                    <div onClick={() => handleNormal(item)} key={item} className="canvas-items mx-3">
+                                        <Link className={`canva-item `} data-bs-dismiss="offcanvas" aria-label="Close" >{item.title}</Link>
+                                    </div> :
+                                    <div onClick={() => handleNav(item)} key={item} className="canvas-items mx-3">
+                                        <Link className={`canva-item `} data-bs-dismiss="offcanvas" aria-label="Close" >{item.title}</Link>
+                                    </div>
+                                }
                                 {index !== navbarItems.length - 1 ? <hr /> : ""}
                             </>
                         ))}

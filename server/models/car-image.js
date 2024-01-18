@@ -9,6 +9,6 @@ const carSchema = new mongoose.Schema({
   }
 });
 
-const Images = mongoose.model("car-images", carSchema);
+const Images = mongoose.model("product-images", carSchema);
 
 module.exports = Images;

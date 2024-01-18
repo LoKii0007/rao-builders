@@ -44,7 +44,7 @@ export const addCarSummary = async (data) => {
             return res.data
         }
         else {
-            console.log("invalid get-car-summaryapi response", res.data)
+            console.log("invalid add-car-summaryapi response", res.data)
         }
     } catch (error) {
         console.log("error calling addCarSummary api", error.message)

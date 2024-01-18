@@ -1,33 +1,55 @@
 const mongoose = require('mongoose');
 
 const productSchema = new mongoose.Schema({
-  name: {
+  car_id: {
     type: String,
     required: true,
+  },
+  prod_name: {
+    type: String,
+  },
+  quality: {
+    type: String,
+  },
+  size: {
+    type: String,
+  },
+  brand: {
+    type: String,
+  },
+  thickness: {
+    type: String,
+  },
+  minimum_order: {
+    type: String,
+  },
+  quantity: {
+    type: String,
   },
   type: {
     type: String,
-    required: true,
-    enum: ['aggregate', 'bricks', 'cement', 'dust', 'steel', 'tiles'],
   },
-  properties: {
-    quality: String,
-    size: String,
-    brand: String,
-    thickness: String,
-    minimum_order: String,
-    material: String,
-    quantity: String,
-    type_cement: String,
-    source: String,
-    price: String,
-    company: String,
-    shape: String,
-    color: String,
-    dimension: String,
+  quality: {
+    type: String,
   },
+  source: {
+    type: String,
+  },
+  price: {
+    type: String,
+  },
+  shape: {
+    type: String,
+  },
+  color: {
+    type: String,
+  },
+  dimension: {
+    type: String,
+  },
+
 });
 
-const product = mongoose.model('Product', productSchema);
+const product = mongoose.model('product', productSchema);
 
 module.exports = product;

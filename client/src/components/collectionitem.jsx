@@ -8,8 +8,7 @@ const CollectionItem = ({ product }) => {
   const navigate = useNavigate()
 
   const handleClick = () => {
-    navigate(`/cardetails`)
-    navigate(`/cardetails/${product._id}`, { state: { id: product._id } })
+    navigate(`/products/${product.product}`, { state: { id: product.product } })
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
@@ -39,13 +38,12 @@ const CollectionItem = ({ product }) => {
     <>
       <div onClick={handleClick} className={`box mx-3 ${col} my-5 d-flex flex-column`}>
         <div className="box-head d-flex justify-content-center align-items-center">
-          {/* <img className='box-img' src={`/images/${car.image}`} alt="" /> */}
-          <img className='box-img' src="/porsche-model.png" alt="" />
+          <img className='box-img' src={`/images/${product.image}`} alt="" />
         </div>
         <div className="box-detail mx-3 py-4 d-flex flex-column">
           <div className="box-body d-flex flex-column justify-content-center align-items-center">
             <div className="title text ">
-              {product.name}
+              {product.product}
             </div>
             <div className="prod-body d-flex justify-content-evenly pt-4">
               <button className='view mx-2 px-3 py-2'>View More</button>

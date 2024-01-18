@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import Home from "./screens/home"
 import Navbar from './components/navbar'
 import Admin from './screens/admin'
-import CarDetails from './screens/cardetails'
+import ProdDetails from './screens/productdetails'
 import LoginScreen from "./screens/loginScreen";
 import Footer from "./components/footer";
 import Contact from "./screens/contact";
@@ -24,8 +24,7 @@ function App() {
           <Route exact path="/contact" element={ <Contact/> }></Route>
           <Route exact path="/about" element={ <About/> }></Route>
           <Route exact path="/team" element={ <Team/> }></Route>
-          {/* <Route exact path="/cardetails/:id" element={ <CarDetails/> }></Route> */}
-          <Route exact path="/cardetails" element={ <CarDetails/> }></Route>
+          <Route exact path="/products/:id" element={ <ProdDetails/> }></Route>
           <Route exact path="/admin" element={ <Admin/> }></Route>
           <Route exact path="/loginscreen" element={ <LoginScreen/> }></Route>
         </Routes>

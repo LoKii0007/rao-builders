@@ -1,10 +1,10 @@
-const carInfo = require("../models/car-info.js")
-const carSummary = require ("../models/car-summary.js")
+const productType = require("../models/car-info.js")
+const product = require ("../models/car-summary.js")
 const Images = require("../models/car-image.js")
 
 const newCar = async(request, response) => {
      try {
-        const newCar = new carInfo(request.body)
+        const newCar = new productType(request.body)
         await newCar.save()
         return response.status(200).json({message: "added new car successfully", data: newCar})
      } catch (error) {
@@ -16,8 +16,7 @@ const addMainImage = async(request, response) => {
    try {
       const imageName =  request.file.filename
       const carId =  request.body.car_id
-      console.log(imageName , carId)
-      await carInfo.findByIdAndUpdate(carId , {image : imageName}, {new : true})
+      await productType.findByIdAndUpdate(carId , {image : imageName}, {new : true})
       return response.status(200).json("Added car images successfully")
    }catch (error) {
         return response.status(500).json({message : "error adding car images : ", error :error.message})
@@ -26,9 +25,10 @@ const addMainImage = async(request, response) => {
 
 const newCarSummary = async(request, response) => {
      try {
-        const newCar = new carSummary(request.body)
+      console.log(request.body)
+        const newCar = new product(request.body)
         await newCar.save()
-        return response.status(200).json({message : "added car summary : ", data : productItem})
+        return response.status(200).json({message : "added car summary : ", data : newCar})
      } catch (error) {
         return response.status(500).json({message : "error adding car summary : ", error :error.message})
      }
@@ -48,10 +48,20 @@ const addCarImages = async(request, response) => {
 
 
 // fetching data
+const getAllCars = async(request , response)=>{
+   try {
+       const carinfo = await productType.find({})
+       return response.status(200).json(carinfo)
+   } catch (error) {
+       return response.status(500).json({message : "error fetching car collection details : ", error :error.message})
+       
+   }
+}
+
 const getCar = async(req , res ) => {
    try {
       const carId = req.body.id
-      const carinfo = await carInfo.findById(carId)
+      const carinfo = await productType.findById(carId)
       if(!carinfo || carinfo.length === 0){
          return res.status(400).json("no carinfo found or invalid car_id")
       }
@@ -89,16 +99,5 @@ const getCarImages = async(req , res ) => {
       
    }
 }
-
-const getAllCars = async(request , response)=>{
-    try {
-        const carinfo = await carInfo.find({})
-        return response.status(200).json(carinfo)
-    } catch (error) {
-        return response.status(500).json({message : "error fetching car collection details : ", error :error.message})
-        
-    }
-}
-
 
 module.exports = {newCar,addMainImage , getCar, getAllCars,  addCarImages, newCarSummary , getCarSummary , getCarImages}
