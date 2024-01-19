@@ -12,6 +12,7 @@ const Navbar = () => {
         { title: "All Products", link: "collection" },
         { title: "About Us", link: "about" },
         { title: "Team", link: "team" },
+        { title: "Contact Us", link: "contact" },
         { title: "Aggregate", link: "aggregate" },
         { title: "Stone dust", link: "stone" },
         { title: "Jamuna sand", link: "jamuna" },
@@ -90,7 +91,7 @@ const Navbar = () => {
                 </div>
 
                 <div className="sticky-top custom-navbar-2 d-flex py-3 justify-content-center">
-                    {navbarItems.slice(2, navbarItems.length).map((item, index) => (
+                    {navbarItems.slice(5, navbarItems.length).map((item, index) => (
                         <>
                             {index !== navbarItems.length-1 ?
                                 <div onClick={() => handleNav(item)} key={item} className="itm-2 me-5">
@@ -113,7 +114,7 @@ const Navbar = () => {
                     <div className="offcanvas-body">
                         {navbarItems.map((item, index) => (
                             <>
-                                {index === 0 || 1 || 2 || 3 ?
+                                {index === 0 || 1 || 2 || 3 ||4 ?
                                     <div onClick={() => handleNormal(item)} key={item} className="canvas-items mx-3">
                                         <Link className={`canva-item `} data-bs-dismiss="offcanvas" aria-label="Close" >{item.title}</Link>
                                     </div> :

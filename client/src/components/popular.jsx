@@ -11,9 +11,9 @@ export default function Popular() {
     const [popular, setPopular] = useState([])
     const [items, setItems] = useState(true)
 
-    useEffect(()=>{
+    useEffect(() => {
         setPopular(product)
-    },[product])
+    }, [product])
 
     useEffect(() => {
         const handleResize = () => {
@@ -34,12 +34,12 @@ export default function Popular() {
         <>
             <div className="popular mb-5 d-flex flex-column">
                 <div className="popular-top mx-5 mt-5 text-center">
-                    Popular Products 
+                    Popular Products
                 </div>
                 <div className={`popular-bottom align-items-center justify-content-center d-flex flex-wrap`}>
                     {popular.map((car, index) => (
-                    <CollectionItem key={index} product={car} />
-                     ))}
+                        <CollectionItem key={index} product={car} />
+                    ))}
 
                 </div>
             </div>

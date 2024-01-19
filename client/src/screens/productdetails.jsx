@@ -4,100 +4,101 @@ import { getAllProduct, getItem, getItemImage } from "../services/api"
 import CollectionItem from '../components/collectionitem'
 import "../css/cardetails.css"
 import Fixed from '../components/fixed'
-import { Product } from '../components/product'
+import Product from '../components/product'
 
 const ProdDetails = () => {
     const { name } = useParams()
-    const id = "65a86d7223b3dd8af5e5b276"
+    // const id = "65a86d7223b3dd8af5e5b276"
+    const [id, setId] = useState("")
     const [prodTypes, setProdTypes] = useState([])
     const [product, setProduct] = useState({})
     const [relatedCars, setRelatedCars] = useState([])
-    const [items, setItems] = useState([])
-    const [image, setImage] = useState([])
+    // const [products, setproducts] = useState([])
+    // const [image, setImage] = useState([])
+    let products = []
+    let image = []
 
 
     const getAllProducts = async () => {
         const res = await getAllProduct()
         if (res != undefined) {
-            console.log(name)
             console.log(res)
             const filtered = res.filter(prod => prod.product.toLowerCase().includes(name.toLowerCase()))
-            if(filtered){
+            if (filtered.length > 0) {
                 setProdTypes(filtered)
                 setProduct(filtered[0])
             }
             const filteredRelatedCar = res.filter(car => car.product !== product)
             setRelatedCars(filteredRelatedCar)
+            console.log(relatedCars)
         }
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         getAllProducts()
-    },[])
+    }, [])
 
-    useEffect(()=>{
+    useEffect(() => {
         console.log(prodTypes)
-        console.log(product)
-    },[product],[product])
+        if (product) {
+            console.log(product)
+            setId(product._id)
+        }
+    }, [prodTypes, product])
 
-    const getItems = async () => {
+    const getproducts = async () => {
         const res = await getItem({ id })
         if (res) {
-            setItems(res.data)
+            // setproducts(res.data)
+            // products = res.data[0]
+            products = res.data
+            console.log(products)
         }
     }
 
     const getItemImages = async () => {
         const res = await getItemImage({ id })
         if (res) {
-            setImage(res.data)
+            // setImage(res.data)
+            // image = res.data[0].images
+            image = res.data
+            console.log(image)
         }
     }
 
     useEffect(() => {
-        console.log(items)
-        console.log(image)
-    }, [items],[image])
-    
-
-
-    useEffect(() => {
         if (id) {
-            getItems()
+            getproducts()
             getItemImages()
         }
     }, [id])
 
-    useEffect(() => {
-        const handleResize = () => {
-            if (window.innerWidth > 500) {
-                setItems(3)
-            } else {
-                setItems(6)
-            }
-        }
-        handleResize()
-        window.addEventListener("resize", handleResize)
-        return () => {
-            window.removeEventListener("resize", handleResize)
-        }
-    }, [])
-
+    // useEffect(() => {
+    //     console.log(products)
+    //     console.log(image)
+    // }, [products ,image])
 
     return (
         <>
             <div className="details-page pb-4">
                 <div className="details py-4 text-center">
-                    {prodTypes.product}
+                    {product.product}
                 </div>
 
-                <div className="all my-5 d-flex flex-column justify-content-center align-items-center">
-                    {Array.isArray(items) && items.map((item, index) => (
-                        <div key={index}>
-                            <Product image={image[index].images} item={item} product={product} />
+                <div className="all my-5 d-flex flex-column justify-content-center align-products-center">
+                    {/* {products && products.length > 0 ? products.map((item, index) => (
+                        <div key={item._id} >
+                            <Product image={image} item={item} product={product} />
                             <div className="line"></div>
                         </div>
-                    ))}
+                    )) : ""} */}
+                    {products && products.length > 0 ?
+                        products.map((prod, index) => (
+                            <>
+                                <Product key={prod._id} prod={prod} prod_image={image[index]} product={product} />
+                            </>
+                        )) : ""
+                    }
                 </div>
 
                 <div className="related-cars container">
@@ -106,9 +107,9 @@ const ProdDetails = () => {
                     </div>
                     <div className="related-cars-body">
                         <div className="col-body d-flex flex-wrap justify-content-evenly">
-                            {relatedCars.isArray && relatedCars.map((car) => {
-                                return <CollectionItem key={car._id} car={car} />
-                            })}
+                            {relatedCars.isArray && relatedCars.map((car) => (
+                                <CollectionItem key={car._id} product={car} />
+                            ))}
                         </div>
                     </div>
                 </div>
