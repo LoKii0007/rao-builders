@@ -70,11 +70,11 @@ const Navbar = () => {
                             <i className="fa-solid fa-phone-volume"></i>
                         </div>
                         <div className="contact-text ">
-                            <a className='text-left mx-4' href="tel:+919560003717">
-                                (+91) 95600 03717
+                            <a className='text-left mx-4' href="tel:+919911897526">
+                                (+91) 9911897526
                             </a>
-                            <a className='text-left' href="tel:+919560003717">
-                                (+91) 95600 03717
+                            <a className='text-left' href="tel:+918447637436">
+                            +918447637436
                             </a>
                         </div>
                     </div>
@@ -93,7 +93,7 @@ const Navbar = () => {
                 <div className="sticky-top custom-navbar-2 d-flex py-3 justify-content-center">
                     {navbarItems.slice(5, navbarItems.length).map((item, index) => (
                         <>
-                            {index !== navbarItems.length-1 ?
+                            {index !== navbarItems.length - 1 ?
                                 <div onClick={() => handleNav(item)} key={item} className="itm-2 me-5">
                                     {item.title}
                                 </div> :
@@ -114,13 +114,9 @@ const Navbar = () => {
                     <div className="offcanvas-body">
                         {navbarItems.map((item, index) => (
                             <>
-                                {index === 0 || 1 || 2 || 3 ||4 ?
-                                    <div onClick={() => handleNormal(item)} key={item} className="canvas-items mx-3">
-                                        <Link className={`canva-item `} data-bs-dismiss="offcanvas" aria-label="Close" >{item.title}</Link>
-                                    </div> :
-                                    <div onClick={() => handleNav(item)} key={item} className="canvas-items mx-3">
-                                        <Link className={`canva-item `} data-bs-dismiss="offcanvas" aria-label="Close" >{item.title}</Link>
-                                    </div>
+                                {index >=0 && index<=4 ?
+                                    <div onClick={() => handleNormal(item)} key={item} className="canvas-items mx-3 canva-item text" data-bs-dismiss="offcanvas" aria-label="Close" > {item.title} </div> :
+                                    <div onClick={() => handleNav(item)} key={item} className="canvas-items mx-3 canva-item text" data-bs-dismiss="offcanvas" aria-label="Close"> {item.title} </div>
                                 }
                                 {index !== navbarItems.length - 1 ? <hr /> : ""}
                             </>

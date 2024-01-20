@@ -6,7 +6,7 @@ export default function Product ( {prod , prod_image, product} ) {
     useEffect(()=>{
         console.log(product)
         console.log(prod)
-        console.log(prod_image)
+        console.log("images : ",prod_image)
     },[prod , prod_image, product])
 
     return (
@@ -14,26 +14,26 @@ export default function Product ( {prod , prod_image, product} ) {
             <div className="product mb-5 d-flex">
                 <div className="pleft d-flex justify-content-center align-prods-center">
                     {/* <img src="/porsche-model.png" alt="image" /> */}
-                    <img src={`../../client/public/images/${prod_image}`} alt="image" />
+                    <img src={`/images/${ prod_image? prod_image.images :""}`} alt="image" />
                 </div>
                 <div className="pright d-flex p-5 flex-column justify-content-center">
                     <div className="pright-head text-center">
-                        {prod.prod_name}
+                        {prod ? prod.prod_name : "name"}
                     </div>
 
                     {product.product === "Cement" ?
                         <div className="pright-body py-4">
                             <div className='d-flex justify-content-between mb-2 mx-3'>
                                 <div>quantity</div>
-                                <div>{prod.quantity}</div>
+                                <div>{prod ? prod.quantity : "-"}</div>
                             </div>
                             <div className='d-flex justify-content-between mb-2 mx-3'>
                                 <div>Type</div>
-                                <div>{prod.type}</div>
+                                <div>{prod ? prod.type : "-"}</div>
                             </div>
                             <div className='d-flex justify-content-between mb-2 mx-3'>
                                 <div>Brand</div>
-                                <div>{prod.brand}</div>
+                                <div>{prod ? prod.quantity : "-"}</div>
                             </div>
                         </div>: ""
                     }
@@ -129,8 +129,8 @@ export default function Product ( {prod , prod_image, product} ) {
                                 <i class="fa-solid fa-phone-volume"></i>
                             </div>
                             <div className="contact-text ms-2 ">
-                                <a className='text-left' href="tel:+919560003717">
-                                    +9195600 03717
+                                <a className='text-left' href="tel:+919911897526">
+                                    +919911897526
                                 </a>
                             </div>
                         </div>
@@ -139,13 +139,13 @@ export default function Product ( {prod , prod_image, product} ) {
                                 <i class="fa-solid fa-phone-volume"></i>
                             </div>
                             <div className="contact-text ms-2 ">
-                                <a className='text-left' href="tel:+919560003717">
-                                    +9195600 03717
+                                <a className='text-left' href="tel:+918447637436">
+                                +918447637436
                                 </a>
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </>

@@ -1,11 +1,11 @@
 import axios from "axios"
 import toast from "react-hot-toast"
 
-// const URL = "http://localhost:8000"
-const URL = "https://rao-builders-api.vercel.app"
+const URL = "http://localhost:8000"
+// const URL = "https://rao-builders-api.vercel.app"
 
 
-//adding car details api
+//adding product type details api
 export const addCarInfo = async (data) => {
     try {
         const res = await axios.post(`${URL}/api/add/car-info`, data)

@@ -1,28 +1,30 @@
-import React, { useContext, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import NewCar from '../components/newcar'
 import { Link, useParams } from 'react-router-dom'
 import "../css/admin.css"
+import { getInquiry } from '../services/inquire'
 
 
 const Admin = () => {
   const flag = useParams()
   const authToken = localStorage.getItem("token")
-  const [addbtn, setaddbtn] = useState(false)
-  const [getbtn, setGetbtn] = useState(false)
+  const [inquiry, setInquiy] = useState([])
 
-  const handleAdd = () => {
-
+  const getAllInquiries = async () => {
+    const res = await getInquiry()
+    if (res) {
+      setInquiy(res)
+    }
   }
 
-  const handleUpdate = () => {
+  useEffect(() => {
+    getInquiry()
+  }, [])
 
-  }
+  useEffect(() => {
+    console.log(inquiry)
+  }, [inquiry])
 
-  const handleDelete = () => {
-
-  }
-  const handleGet = () => {
-  }
 
 
   if (authToken) {
@@ -42,20 +44,19 @@ const Admin = () => {
                 <div className="accordion-item">
                   <h2 className="accordion-header">
                     <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                      All products
+                      All Inquiry
                     </button>
                   </h2>
                   <div id="flush-collapseTwo" className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                     <div className="accordion-body">
-                      <div className="all-staff">
-                        Member 1
-                      </div>
-                      <div className="all-staff">
-                        Member 2
-                      </div>
-                      <div className="all-staff">
-                        Member 3
-                      </div>
+
+                      {inquiry && inquiry.length > 0 ?
+                        inquiry.map((inq, index) => (
+                          <div className="all-staff">
+                            
+                          </div>
+                        ))
+                        : ""}
                     </div>
                   </div>
                 </div>

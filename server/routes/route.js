@@ -4,23 +4,28 @@ const {newCar, getCar, getAllCars ,  addCarImages, newCarSummary, getCarSummary,
 const { createUser, login , getUser } = require("../controller/auth.js");
 const fetchUser = require("../middleware/fetchuser.js")
 const upload = require("../middleware/upload.js");
+const { newInquiry, getAllInquiry } = require('../controller/inquiry.js');
 
 
 const route = express.Router()
 
 
-//adding car details
+//adding product details
 route.post('/api/add/car-info', newCar)
 route.post('/api/add/car-main-image', upload.single("main_image"), addMainImage )
 route.post('/api/add/car-summary', newCarSummary)
 route.post('/api/add/car-images', upload.single("images"), addCarImages )
 
 
-//getting car details
+//getting product details
 route.get('/api/get/cars', getAllCars)
 route.post('/api/get/car-info', getCar)
 route.post('/api/get/car-summary', getCarSummary)
 route.post('/api/get/car-images', getCarImages)
+
+// inquiry details
+route.post('/api/add/new-inquiry', newInquiry)
+route.get('/api/get/inquiry', getAllInquiry)
 
 
 //authentication for admin
