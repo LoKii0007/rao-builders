@@ -1,8 +1,8 @@
 import axios from "axios"
 import toast from "react-hot-toast"
 
-const URL = "http://localhost:8000"
-// const URL = "https://rao-builders-api.vercel.app"
+// const URL = "http://localhost:8000"
+const URL = "https://rao-builders-api.vercel.app"
 
 
 //adding product type details api
