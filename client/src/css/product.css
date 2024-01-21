@@ -2,13 +2,13 @@
     width: 450px;
 }
 
-.product{
-    border-bottom: 3px solid #242424;
-}
-
 .pright-head{
     text-transform: uppercase;
     font-size: 2rem;
+}
+
+.product{
+    border-bottom: 3px solid black;
 }
 
 .pright-foot{
@@ -53,10 +53,19 @@
 @media screen and (max-width:500px) {
     .product{
         flex-direction: column !important;
+        border: 2px solid black;
+        border-radius: 10px;
     }
+
 
     .pleft img{
         width: 350px;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+    }
+
+    .pright-head{
+        font-size: 1.3rem;
     }
 
     .pright-foot{

@@ -11,6 +11,7 @@ import CarState from "./context/carcontext";
 import About from "./screens/about"
 import { Toaster } from "react-hot-toast";
 import Team from "./screens/team";
+import Allprods from "./screens/allprods";
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
         {window.location.pathname === "/loginscreen" || window.location.pathname ===  "/admin" ?"":<Navbar/>}
         <Routes>
           <Route exact path="/" element={ <Home/> }></Route>
+          <Route exact path="/collection" element={ <Allprods/> }></Route>
           <Route exact path="/contact" element={ <Contact/> }></Route>
           <Route exact path="/about" element={ <About/> }></Route>
           <Route exact path="/team" element={ <Team/> }></Route>

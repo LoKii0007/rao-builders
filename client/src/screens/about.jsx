@@ -1,8 +1,13 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import "../css/about.css"
 import Fixed from '../components/fixed'
 
 export default function About() {
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}, [])
+
   return (
     <>
       <div className="about  d-flex flex-column ">

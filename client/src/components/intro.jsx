@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import gsap from 'gsap';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import '../css/intro.css'
 
 
@@ -27,18 +27,6 @@ const Intro = () => {
         }
     }
 
-    // -------------animation------------------
-
-    useEffect(() => {
-
-        gsap.to(".portfolio-img", {
-            y: 0,
-            duration: 1,
-            ease: "back",
-            opacity: 1
-        })
-    }, [])
-
 
     return (
         <>
@@ -60,13 +48,13 @@ const Intro = () => {
                                 <img src="/bg-stone.webp" className="bg-img d-block w-100" alt="..." />
                             </div>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
+                        <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span className="visually-hidden">Previous</span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
+                        <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span className="visually-hidden">Next</span>
                         </button>
                     </div>
                 </div>
@@ -74,7 +62,7 @@ const Intro = () => {
                 <div className="intro-foot px-5 py-5 d-flex align-items-center justify-content-evenly">
                     <div className="foot1 d-flex">
                         <div className="foot-icon mx-5 d-flex align-items-center justify-content-center">
-                            <i class="fa-solid fa-hand-holding-dollar"></i>
+                            <i className="fa-solid fa-hand-holding-dollar"></i>
                         </div>
                         <div className="foot-desc">
                             <h5><span style={{color:"orange"}}>Unbeatable</span> prices</h5>
@@ -83,7 +71,7 @@ const Intro = () => {
                     </div>
                     <div className="foot2 d-flex middle">
                         <div className="foot-icon mx-5 d-flex align-items-center justify-content-center">
-                            <i class="fa-solid fa-stopwatch "></i>
+                            <i className="fa-solid fa-stopwatch "></i>
                         </div>
                         <div className="foot-desc ">
                             <h5><span style={{color:"orange"}}>On time</span> delivery </h5>
@@ -92,7 +80,7 @@ const Intro = () => {
                     </div>
                     <div className="foot3 d-flex">
                         <div className="foot-icon mx-5 d-flex align-items-center justify-content-center">
-                            <i class="fa-solid fa-medal "></i>
+                            <i className="fa-solid fa-medal "></i>
                         </div>
                         <div className="foot-desc">
                             <h5><span style={{color:"orange"}}>Authorized</span> dealer</h5>

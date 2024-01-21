@@ -4,15 +4,31 @@ import "../css/footer.css"
 
 const Footer = () => {
   const [text, setText] = useState("")
-  const companyOptions = ["Buy Steel/TMT bars", "Buy Cement", "Buy Jamuna sand", "Buy Bricks & Blocks", "Buy Aggregate", "Buy Interlocking tiles", "Buy Stone dust", "Buy RMC"]
-  const bodyTypeOptions = ["Buy ultratech cement","Buy Shree cement" , "Buy Rathi steel", "buy Jindal Steel", "Buy Kamadhenu steel"]
-  const General = ["About us", "Team", "FAQs", "location"]
-  const address = ["Khasra number 30//7,", "VPO kapashera near rajokri roundabout,", "Rajokri, New Delhi, Delhi 110037"]
+  const companyOptions = [
+    { title: "Buy Aggregate", link: "products/aggregate" },
+    { title: "Buy Stone dust", link: "products/stone" },
+    { title: "Buy Jamuna sand", link: "products/jamuna" },
+    { title: "Buy Bricks & Blocks", link: "products/brick" },
+    { title: "Buy RMC", link: "products/rmc" },
+    { title: "Buy Cement", link: "products/cement" },
+    { title: "Buy Steel/TMT Bars", link: "products/steel" },
+    { title: "Buy Interlocking Tiles", link: "products/tiles" },]
+  const bodyTypeOptions = ["Buy ultratech cement", "Buy Shree cement", "Buy Rathi steel", "buy Jindal Steel", "Buy Kamadhenu steel"]
+  const General = [
+    {title:"About us", link:"about"},
+    {title:"contact us", link:"contact"},
+    {title:"Team", link:"team"},
+    {title:"FAQ", link:"faq"},
+  ]
+  const address = [
+    {title:"G22H+G73, Block C 1, Palam Vihar, Gurugram,Haryana 122017", link:"faq"},
+  ]
   const footerContent = [
     { title: 'General', content: General },
-    { title: 'Studio', content: address },
+    { title: 'Location', content: address },
     { title: 'Products', content: companyOptions },
-    { title: 'Others', content: bodyTypeOptions },]
+    // { title: 'Others', content: bodyTypeOptions },
+  ]
   const [collapse, setCollapse] = useState(false)
 
 
@@ -87,21 +103,21 @@ const Footer = () => {
                     {section.title}
                   </button>
 
-                  {index!== footerContent.length-1 ?<hr/>:""}
+                  {index !== footerContent.length - 1 && collapse ? <hr /> : ""}
+                  {!collapse ? <hr /> : ""}
                   <div className='d-flex '>
-                    <div className={`accordion-collapse mb-3 collapse ${!collapse ? 'show' : ''} ${section.title === section.title? "foot-option-selected":""} `} id={`collapse${section.title}`} data-bs-parent="#accordian2">
+                    <div className={`accordion-collapse mb-3 collapse ${!collapse ? 'show' : ''} ${section.title === section.title ? "foot-option-selected" : ""} `} id={`collapse${section.title}`} data-bs-parent="#accordian2">
                       {section.content.slice(0, 8).map((option, subIndex) => (
                         <div key={subIndex} className={`mx-1 options ${option === option ? 'option-selected' : ''}`}>
-                          {option}
-                          
+                          <Link className='options' to={`/${option.link}`}>{option.title}</Link>
                         </div>
-                        
+
                       ))}
                     </div>
-                    <div className={`accordion-collapse collapse ${!collapse ? 'show' : ''} ${section.title === section.title? "foot-option-selected":""} `} id={`collapse${section.title}`} data-bs-parent="#accordian2">
+                    <div className={`accordion-collapse collapse ${!collapse ? 'show' : ''} ${section.title === section.title ? "foot-option-selected" : ""} `} id={`collapse${section.title}`} data-bs-parent="#accordian2">
                       {section.content.slice(9, section.content.length).map((option, subIndex) => (
                         <div key={subIndex} className={`mx-1 options ${option === option ? 'option-selected' : ''}`}>
-                          {option}
+                          <Link className='options' to={`/${option.link}`}>{option.title}</Link>
                         </div>
                       ))}
                     </div>
@@ -113,7 +129,6 @@ const Footer = () => {
           <hr />
 
           <div className="footer-foot my-3 d-flex justify-content-between align-items-center">
-            {/* <div className="copyright">copyright © You drive me crazy | Privacy policy | Terms of use</div> */}
             <div className="copyright">copyright © Rao builders</div>
             <div className="design">
               website by Spiderworks

@@ -101,7 +101,7 @@ const CollectionItem = ({ product }) => {
 
 
       {/* <--------------------- Modal ---------------> */}
-      <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
           <div className="modal-content">
             <div className="modal-header">
@@ -111,22 +111,22 @@ const CollectionItem = ({ product }) => {
             <div className="modal-body">
               <div className="mb-3">
                 <label htmlFor="name" className="form-label">Name</label>
-                <input type="text" name='name' onChange={(e)=>onchange(e)} value={inquiry.name} className="contact-form form-control" id="name" />
+                <input type="text" name='name' onChange={(e)=>onchange(e)} value={inquiry.name} className="form-control" id="name" />
               </div>
               <div className="mb-3">
-                <label for="exampleFormControlInput1" className="form-label">Email address</label>
+                <label htmlFor="exampleFormControlInput1" className="form-label">Email address</label>
                 <input type="email" name='email' onChange={(e)=>onchange(e)} value={inquiry.email} className="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
               </div>
               <div className="mb-3">
                 <label htmlFor="phone" className="form-label">Phone</label>
-                <input type="number" name='phone' onChange={(e)=>onchange(e)} value={inquiry.phone} className="contact-form form-control" id="phone" />
+                <input type="number" name='phone' onChange={(e)=>onchange(e)} value={inquiry.phone} className="form-control" id="phone" />
               </div>
               <div className="mb-3">
                 <label htmlFor="city" className="form-label">City</label>
-                <input type="text" name='city' onChange={(e)=>onchange(e)} value={inquiry.city} className="contact-form form-control" id="city" />
+                <input type="text" name='city' onChange={(e)=>onchange(e)} value={inquiry.city} className="form-control" id="city" />
               </div>
               <div className="mb-3">
-                <label for="exampleFormControlTextarea1" className="form-label">What are you looking for?</label>
+                <label htmlFor="exampleFormControlTextarea1" className="form-label">What are you looking for?</label>
                 <textarea name='lookingFor' onChange={(e)=>onchange(e)} value={inquiry.lookingFor} className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
               </div>
             </div>

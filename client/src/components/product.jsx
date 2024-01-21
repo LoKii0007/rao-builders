@@ -4,9 +4,6 @@ import "../css/product.css"
 export default function Product ( {prod , prod_image, product} ) {
 
     useEffect(()=>{
-        console.log(product)
-        console.log(prod)
-        console.log("images : ",prod_image)
     },[prod , prod_image, product])
 
     return (
@@ -126,7 +123,7 @@ export default function Product ( {prod , prod_image, product} ) {
                     <div className="pright-foot d-flex justify-content-between">
                         <div className="contact-1 me-5 d-flex justify-content-center">
                             <div className="call-icon contact-icons">
-                                <i class="fa-solid fa-phone-volume"></i>
+                                <i className="fa-solid fa-phone-volume"></i>
                             </div>
                             <div className="contact-text ms-2 ">
                                 <a className='text-left' href="tel:+919911897526">
@@ -136,7 +133,7 @@ export default function Product ( {prod , prod_image, product} ) {
                         </div>
                         <div className="contact-2 d-flex justify-content-center">
                             <div className="call-icon contact-icons">
-                                <i class="fa-solid fa-phone-volume"></i>
+                                <i className="fa-solid fa-phone-volume"></i>
                             </div>
                             <div className="contact-text ms-2 ">
                                 <a className='text-left' href="tel:+918447637436">

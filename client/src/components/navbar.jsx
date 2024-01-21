@@ -74,7 +74,7 @@ const Navbar = () => {
                                 (+91) 9911897526
                             </a>
                             <a className='text-left' href="tel:+918447637436">
-                            +918447637436
+                                +918447637436
                             </a>
                         </div>
                     </div>
@@ -92,17 +92,18 @@ const Navbar = () => {
 
                 <div className="sticky-top custom-navbar-2 d-flex py-3 justify-content-center">
                     {navbarItems.slice(5, navbarItems.length).map((item, index) => (
-                        <>
+                        <React.Fragment key={item.title}>
                             {index !== navbarItems.length - 1 ?
-                                <div onClick={() => handleNav(item)} key={item} className="itm-2 me-5">
+                                <div onClick={() => handleNav(item)} className="itm-2 me-5">
                                     {item.title}
                                 </div> :
-                                <div onClick={() => handleNav(item)} key={item} className="itm-2">
+                                <div onClick={() => handleNav(item)} className="itm-2">
                                     {item.title}
                                 </div>
                             }
-                        </>
+                        </React.Fragment>
                     ))}
+
                 </div>
 
                 {/* menubar */}
@@ -113,14 +114,15 @@ const Navbar = () => {
                     </div>
                     <div className="offcanvas-body">
                         {navbarItems.map((item, index) => (
-                            <>
-                                {index >=0 && index<=4 ?
-                                    <div onClick={() => handleNormal(item)} key={item} className="canvas-items mx-3 canva-item text" data-bs-dismiss="offcanvas" aria-label="Close" > {item.title} </div> :
-                                    <div onClick={() => handleNav(item)} key={item} className="canvas-items mx-3 canva-item text" data-bs-dismiss="offcanvas" aria-label="Close"> {item.title} </div>
+                            <React.Fragment key={item.title}>
+                                {index >= 0 && index <= 4 ?
+                                    <div onClick={() => handleNormal(item)} className="canvas-items mx-3 canva-item text" data-bs-dismiss="offcanvas" aria-label="Close"> {item.title} </div> :
+                                    <div onClick={() => handleNav(item)} className="canvas-items mx-3 canva-item text" data-bs-dismiss="offcanvas" aria-label="Close"> {item.title} </div>
                                 }
                                 {index !== navbarItems.length - 1 ? <hr /> : ""}
-                            </>
+                            </React.Fragment>
                         ))}
+
                     </div>
                 </div>
             </div>

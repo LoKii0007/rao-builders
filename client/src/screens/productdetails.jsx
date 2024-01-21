@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom"
 import { getAllProduct, getItem, getItemImage } from "../services/api"
 import CollectionItem from '../components/collectionitem'
-import "../css/cardetails.css"
 import Fixed from '../components/fixed'
 import Product from '../components/product'
+import "../css/proddetails.css"
 
 const ProdDetails = () => {
     const { name } = useParams()
@@ -14,6 +14,7 @@ const ProdDetails = () => {
     const [relatedCars, setRelatedCars] = useState([])
     const [products, setproducts] = useState([])
     const [image, setImage] = useState([])
+    const [loadingData, setLoadingData] = useState(true)
 
     const getAllProducts = async () => {
         const res = await getAllProduct()
@@ -33,7 +34,6 @@ const ProdDetails = () => {
             const res = await getItem({ id })
             if (res) {
                 setproducts(res.data)
-                console.log(products)
             }
         }
     }
@@ -48,6 +48,7 @@ const ProdDetails = () => {
     }
 
     useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         getAllProducts()
 
     }, [name])
@@ -64,24 +65,34 @@ const ProdDetails = () => {
     }, [id])
 
     useEffect(() => {
-        console.log(products)
-        console.log(image)
-    }, [products, image])
+        if (products) {
+            setLoadingData(false)
+        }
+    }, [products, image ])
 
     return (
         <>
             <div className="details-page pb-4">
-                <div className="details py-4 text-center">
+                <div className="details position-relative py-4 text-center">
+                    <div className='position-relative prodtype-name'>
                     {prodType.product}
+                    </div>
+                    <div className='position-absolute details-img d-flex justify-content-center'>
+                    <img className='' src={`/images/${prodType.image}`} alt="" />
+                    </div>
                 </div>
 
                 <div className="all my-5 d-flex flex-column justify-content-center align-items-center">
-                    {products && products.length > 0 ?
+                    {loadingData ?
+                        <div className='loading d-flex justify-content-center align-items-center'>
+                            <img src="/loading2.gif" alt="" />
+                        </div>
+                        :
                         products.map((prod, index) => (
-                            <>
+                            <React.Fragment key={prod._id}>
                                 <Product key={prod._id} prod={prod} prod_image={image[index]} product={prodType} />
-                            </>
-                        )) : ""
+                            </React.Fragment>
+                        ))
                     }
                 </div>
 

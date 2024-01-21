@@ -4,15 +4,18 @@ import { productContext } from '../context/carcontext'
 import "../css/collectionitem.css"
 import CollectionItem from './collectionitem'
 
-export default function Popular() {
+export default function Popular({title}) {
     const context = useContext(productContext)
     const { product } = context
-    console.log(product)
     const [popular, setPopular] = useState([])
     const [items, setItems] = useState(true)
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         setPopular(product)
+        if(popular){
+            setLoading(false)
+        }
     }, [product])
 
     useEffect(() => {
@@ -34,10 +37,14 @@ export default function Popular() {
         <>
             <div className="popular mb-5 d-flex flex-column">
                 <div className="popular-top mx-5 mt-5 text-center">
-                    Popular Products
+                    {title}
                 </div>
                 <div className={`popular-bottom align-items-center justify-content-center d-flex flex-wrap`}>
-                    {popular.map((car, index) => (
+                    {loading ? 
+                    <div className='loading d-flex justify-content-center align-items-center'>
+                        <img src="/loading2.gif" alt="" />
+                    </div> :
+                    popular.map((car, index) => (
                         <CollectionItem key={index} product={car} />
                     ))}
 

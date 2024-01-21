@@ -35,6 +35,10 @@
         margin: auto 48px !important;
     }
 
+    .popular-top{
+        font-size: 2rem;
+    }
+
 }
 
 @media screen and (max-width:500px) {

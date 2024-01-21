@@ -52,6 +52,10 @@
     transition: .5s ease;
 }
 
+.title{
+    font-size: 1.5rem;
+}
+
 /* -----------media queries----------  */
 
 @media screen and (min-width:716px) and (max-width:1280px) {
@@ -119,6 +123,10 @@
 
     .box-img{
         width: 100%;
+    }
+
+    .title{
+        font-size: 1.3rem;
     }
 
     .box-footer{
