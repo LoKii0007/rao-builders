@@ -22,6 +22,7 @@ const NewCar = () => {
   const dust = ["prod_name","quality", "source", "price"]
   const steel = ["prod_name","size", "company", "price"]
   const tiles = ["prod_name","shape", "color", "dimension", "price"]
+  const jamuna = ["prod_name", "price"]
 
   const onChange = (e) => {
     setText({ ...text, [e.target.name]: e.target.value })

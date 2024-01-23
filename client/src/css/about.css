@@ -16,6 +16,14 @@
     width: 100%;
 }
 
+.box-top , .history-top , .sh-top{
+    font-size: 2.5rem;
+}
+
+.box-body , .history-body{
+    font-size: 1.5rem;
+}
+
 .about-box{
     width: 100%;
 }
@@ -41,27 +49,53 @@
 
 .sh-btn{
     background-color: #242424;
-    color: white;
     border: 2px solid #242424;
     transition: .5s ease;
+    text-decoration: none;
+    color: white;   
 }
 
 .sh-btn:hover{
     background-color: whitesmoke;
-    color: #242424;
     transition: .5s ease;
+    color: #242424;
 }
+
 
 /* ------------------media queries---------- */
 
+@media screen and (min-width:501px) and (max-width:768px) {
+    
+    .box-top , .history-top , .sh-top{
+        font-size: 2rem;
+    }
+    
+    .box-body , .history-body{
+        font-size: 1.5rem;
+    }
+
+    .about-top{
+        font-size: 3rem;
+    }
+
+}
+
 @media screen and (max-width:500px) {
+
+    .about-top{
+        font-size: 2rem;
+    }
+
     .about-bottom{
         flex-direction: column !important;
     }
 
-    .about-top{
-        font-size: 1.7rem;
-        height: 25vh;
+    .box-top , .history-top , .sh-top{
+        font-size: 1.5rem;
+    }
+    
+    .box-body , .history-body{
+        font-size: 1rem;
     }
 
     .about-box{

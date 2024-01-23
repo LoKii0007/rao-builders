@@ -61,7 +61,7 @@ const CollectionItem = ({ product }) => {
     <>
       <div className={`box mx-3 ${col} my-5 d-flex flex-column`}>
         <div onClick={handleClick} className="box-head d-flex justify-content-center align-items-center">
-          <img className='box-img' src={`/images/${product.image}`} alt="" />
+          <img className='box-img' src={`/images/${product.image}`} alt={product.product} />
         </div>
         <div className="box-detail mx-3 py-4 d-flex flex-column">
           <div className="box-body d-flex flex-column justify-content-center align-items-center">

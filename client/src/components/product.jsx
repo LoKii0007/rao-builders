@@ -11,14 +11,14 @@ export default function Product ( {prod , prod_image, product} ) {
             <div className="product mb-5 d-flex">
                 <div className="pleft d-flex justify-content-center align-prods-center">
                     {/* <img src="/porsche-model.png" alt="image" /> */}
-                    <img src={`/images/${ prod_image? prod_image.images :""}`} alt="image" />
+                    <img src={`/images/${ prod_image? prod_image.images :""}`} alt={product.product} />
                 </div>
                 <div className="pright d-flex p-5 flex-column justify-content-center">
                     <div className="pright-head text-center">
                         {prod ? prod.prod_name : "name"}
                     </div>
 
-                    {product.product === "Cement" ?
+                    {product.product.toLowerCase() === "cement" ?
                         <div className="pright-body py-4">
                             <div className='d-flex justify-content-between mb-2 mx-3'>
                                 <div>quantity</div>
@@ -35,87 +35,87 @@ export default function Product ( {prod , prod_image, product} ) {
                         </div>: ""
                     }
 
-                    {product.product === "aggregate" ?
+                    {product.product.toLowerCase() === "aggregate" ?
                         <div className="pright-body py-4">
                             <div className='d-flex justify-content-between mb-2 mx-3'>
                                 <div>quality</div>
-                                <div>sjdcb</div>
+                                <div>{prod ? prod.quality : "-"}</div>
                             </div>
                             <div className='d-flex justify-content-between mb-2 mx-3'>
                                 <div>Size</div>
-                                <div>jsdcb</div>
+                                <div>{prod ? prod.size : "-"}</div>
                             </div>
                             <div className='d-flex justify-content-between mb-2 mx-3'>
                                 <div>Brand</div>
-                                <div>skdcb</div>
+                                <div>{prod ? prod.brand : "-"}</div>
                             </div>
                         </div>: ""
                     }
 
-                    {product.product === "stone dust" ?
+                    {product.product.toLowerCase().toLowerCase() === "stone dust" ?
                         <div className="pright-body py-4">
                             <div className='d-flex justify-content-between mb-2 mx-3'>
                                 <div>quality</div>
-                                <div>sjdcb</div>
+                                <div>{prod ? prod.quality : "-"}</div>
                             </div>
                             <div className='d-flex justify-content-between mb-2 mx-3'>
-                                <div>Size</div>
-                                <div>jsdcb</div>
+                                <div>Source</div>
+                                <div>{prod ? prod.source : "-"}</div>
                             </div>
                             <div className='d-flex justify-content-between mb-2 mx-3'>
-                                <div>Brand</div>
-                                <div>skdcb</div>
+                                <div>Price</div>
+                                <div>{prod ? prod.price : "-"}</div>
                             </div>
                         </div>: ""
                     }
 
-                    {product.product === "steel/tmt bars" ?
+                    {product.product.toLowerCase() === "steel-tmt bars" ?
                         <div className="pright-body py-4">
                             <div className='d-flex justify-content-between mb-2 mx-3'>
-                                <div>quality</div>
-                                <div>sjdcb</div>
-                            </div>
-                            <div className='d-flex justify-content-between mb-2 mx-3'>
                                 <div>Size</div>
-                                <div>jsdcb</div>
+                                <div>{prod ? prod.size : "-"}</div>
                             </div>
                             <div className='d-flex justify-content-between mb-2 mx-3'>
-                                <div>Brand</div>
-                                <div>skdcb</div>
+                                <div>Company</div>
+                                <div>{prod ? prod.company : "-"}</div>
+                            </div>
+                            <div className='d-flex justify-content-between mb-2 mx-3'>
+                                <div>Price</div>
+                                <div>{prod ? prod.price : "-"}</div>
                             </div>
                         </div>: ""
                     }
 
-                    {product.product === "jamuna dust" ?
+                    {product.product.toLowerCase() === "jamuna dust" ?
                         <div className="pright-body py-4">
                             <div className='d-flex justify-content-between mb-2 mx-3'>
                                 <div>quality</div>
-                                <div>sjdcb</div>
+                                <div>{prod ? prod.quantity : "-"}</div>
                             </div>
                             <div className='d-flex justify-content-between mb-2 mx-3'>
                                 <div>Size</div>
-                                <div>jsdcb</div>
+                                <div>{prod ? prod.quantity : "-"}</div>
                             </div>
                             <div className='d-flex justify-content-between mb-2 mx-3'>
                                 <div>Brand</div>
-                                <div>skdcb</div>
+                                <div>{prod ? prod.quantity : "-"}</div>
                             </div>
                         </div>: ""
                     }
 
-                    {product.product === "interlocking tiles" ?
+                    {product.product.toLowerCase() === "interlocking tiles" ?
                         <div className="pright-body py-4">
                             <div className='d-flex justify-content-between mb-2 mx-3'>
                                 <div>quality</div>
-                                <div>sjdcb</div>
+                                <div>{prod ? prod.quantity : "-"}</div>
                             </div>
                             <div className='d-flex justify-content-between mb-2 mx-3'>
                                 <div>Size</div>
-                                <div>jsdcb</div>
+                                <div>{prod ? prod.quantity : "-"}</div>
                             </div>
                             <div className='d-flex justify-content-between mb-2 mx-3'>
                                 <div>Brand</div>
-                                <div>skdcb</div>
+                                <div>{prod ? prod.quantity : "-"}</div>
                             </div>
                         </div>: ""
                     }
