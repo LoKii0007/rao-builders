@@ -149,7 +149,7 @@ const NewCar = () => {
               <option>Cement</option>
               <option>About Us</option>
               <option>Team</option>
-              <option>Steel/TMT Bars</option>
+              <option>Steel-TMT Bars</option>
               <option>Interlocking Tiles</option>
             </select>
           </div>
@@ -181,6 +181,7 @@ const NewCar = () => {
               <input className="form-control new-control" onChange={onChange} value={text.option} type="text" id={option} name={option} />
             </div>
           )) : ""}
+          
           {product === "Bricks & Blocks" ? bricks.map((option) => (
             <div className="form-group my-2" key={option}>
               <label htmlFor={text.option}>{option} :</label>
@@ -202,7 +203,7 @@ const NewCar = () => {
             </div>
           )) : ""}
 
-          {product === "Steel/TMT Bars" ? steel.map((option) => (
+          {product === "Steel-TMT Bars" ? steel.map((option) => (
             <div className="form-group my-2" key={option}>
               <label htmlFor={text.option}>{option} :</label>
               <input className="form-control new-control" onChange={onChange} value={text.option} type="text" id={option} name={option} />

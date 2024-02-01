@@ -52,6 +52,23 @@ export default function Product ( {prod , prod_image, product} ) {
                         </div>: ""
                     }
 
+                    {product.product.toLowerCase() === "bricks & blocks" ?
+                        <div className="pright-body py-4">
+                            <div className='d-flex justify-content-between mb-2 mx-3'>
+                                <div>Brand</div>
+                                <div>{prod ? prod.brand : "-"}</div>
+                            </div>
+                            <div className='d-flex justify-content-between mb-2 mx-3'>
+                                <div>Thickness</div>
+                                <div>{prod ? prod.thickness : "-"}</div>
+                            </div>
+                            <div className='d-flex justify-content-between mb-2 mx-3'>
+                                <div>Minimum order</div>
+                                <div>{prod ? prod.minimum_order : "-"}</div>
+                            </div>
+                        </div>: ""
+                    }
+
                     {product.product.toLowerCase().toLowerCase() === "stone dust" ?
                         <div className="pright-body py-4">
                             <div className='d-flex justify-content-between mb-2 mx-3'>
