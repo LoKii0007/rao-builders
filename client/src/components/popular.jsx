@@ -43,7 +43,7 @@ export default function Popular({title}) {
                     {loading ? 
                     <div className='loading d-flex justify-content-center align-items-center'>
                         <img src="/loading2.gif" alt="" />
-                    </div> : popular.length> 0 &&
+                    </div> : popular &&
                     popular.map((car, index) => (
                         <CollectionItem key={index} product={car} />
                     ))}
